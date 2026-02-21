@@ -1,0 +1,343 @@
+/* ============================
+   Sinera Montajes Industriales
+   styles.css
+   ============================ */
+
+/* ---------- Variables básicas ---------- */
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-soft: #f7f8fd;
+  --text: #101827;
+  --muted: #6b7280;
+  --border: #e2e5f0;
+
+  --brand: #0ea5a4;   /* verde-agua industrial */
+  --brand-dark: #0b7674;
+  --accent: #2563eb;  /* azul ejecución */
+
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow-soft: 0 12px 35px rgba(15, 23, 42, 0.08);
+
+  --max-width: 1080px;
+}
+
+/* ---------- Reset básico ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Ubuntu, sans-serif;
+  background: linear-gradient(180deg, #ffffff, var(--bg));
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Quitar subrayados por defecto */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Layout genérico ---------- */
+.container {
+  width: min(100% - 40px, var(--max-width));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 32px 0;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(226, 229, 240, 0.9);
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  gap: 16px;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.menu a {
+  padding: 7px 12px;
+  border-radius: 999px;
+}
+
+.menu a:hover {
+  background: rgba(15, 23, 42, 0.04);
+  color: var(--text);
+}
+
+.menu a.active {
+  background: rgba(14, 165, 164, 0.12);
+  color: var(--brand-dark);
+  border: 1px solid rgba(14, 165, 164, 0.4);
+}
+
+/* ---------- Botones ---------- */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.05s ease-out, box-shadow 0.05s ease-out,
+    background-color 0.1s ease-out, border-color 0.1s ease-out;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: #ffffff;
+  box-shadow: 0 14px 35px rgba(37, 99, 235, 0.24);
+}
+
+.btn-primary.big {
+  padding: 12px 22px;
+  font-size: 15px;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.02);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-soft);
+  transform: translateY(-1px);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 32px 0 16px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.hero-text h1 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 3.2vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+.hero-btns {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-img img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  object-fit: cover;
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  padding: 10px 0 4px;
+}
+
+.intro-text {
+  margin: 0;
+  text-align: left;
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+/* ---------- Servicios ---------- */
+.services {
+  padding: 26px 0;
+}
+
+.services h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.services .sub {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Cards layout compartido */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Card genérica ---------- */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 14px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.04);
+}
+
+.card-img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ---------- CTA ---------- */
+.cta {
+  padding: 24px 0 34px;
+}
+
+.cta-box {
+  background: linear-gradient(
+    135deg,
+    rgba(14, 165, 164, 0.08),
+    rgba(37, 99, 235, 0.08)
+  );
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.cta-box h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.cta-box p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 18px 0 26px;
+  font-size: 13px;
+  color: var(--muted);
+  background: #ffffff;
+}
+
+.footer-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 880px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-img {
+    order: -1;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    width: min(100% - 26px, var(--max-width));
+  }
+
+  .nav-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu {
+    justify-content: flex-start;
+  }
+
+  .cta-box {
+    align-items: flex-start;
+  }
+}
